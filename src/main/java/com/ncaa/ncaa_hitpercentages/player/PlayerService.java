@@ -17,15 +17,14 @@ public class PlayerService {
         this.playerRepository = playerRepository;
     }
 
-    public List<Player> getPlayer(){
+    public List<Player> getPlayers(){
         return playerRepository.findAll();
     }
 
     public List<Player> getPlayerByTeam(String teamName){
-        return playerRepository.findAll().stream()
-                .filter(player -> teamName.equals(player.getTeam()))
-                .collect(Collectors.toList());
+        return playerRepository.findByTeamContainingIgnoreCase(teamName);
     }
+
 
     public List<Player> getPlayerByName(String searchText){
         return playerRepository.findAll().stream()
@@ -68,4 +67,5 @@ public class PlayerService {
     public void deletePlayer(String playerName){
         playerRepository.deleteByName(playerName);
     }
+
 }

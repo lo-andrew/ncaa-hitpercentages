@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="player_stats")
+@Table(name="hitters")
 public class Player {
     @Id
     private Integer rank;
